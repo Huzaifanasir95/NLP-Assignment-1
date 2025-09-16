@@ -231,15 +231,42 @@ class EnhancedFixedExtractor:
             # Extract detailed information
             detailed_case = self.extract_detailed_case_info()
             
-            # Navigate back
+            # Navigate back and handle form resubmission
             self.driver.back()
             time.sleep(2)
+            
+            # Check if we got the "Confirm Form Resubmission" page
+            if self.handle_form_resubmission():
+                print("✅ Handled form resubmission")
             
             return detailed_case
             
         except Exception as e:
             print(f"❌ Error in View Details for case {case_index + 1}: {e}")
             return None
+    
+    def handle_form_resubmission(self):
+        """Handle the 'Confirm Form Resubmission' page by refreshing"""
+        try:
+            page_source = self.driver.page_source.lower()
+            
+            # Check if we're on the form resubmission error page
+            if any(keyword in page_source for keyword in [
+                'confirm form resubmission', 
+                'err_cache_miss',
+                'reload button to resubmit',
+                'webpage requires data that you entered earlier'
+            ]):
+                print("🔄 Form resubmission page detected - refreshing...")
+                self.driver.refresh()
+                time.sleep(3)
+                return True
+            
+            return False
+            
+        except Exception as e:
+            print(f"⚠️ Error checking form resubmission: {e}")
+            return False
     
     def extract_detailed_case_info(self):
         """NEW: Extract detailed case information from View Details page"""
@@ -356,6 +383,8 @@ class EnhancedFixedExtractor:
         # Process each case with View Details
         for i in range(len(basic_cases)):
             try:
+                print(f"\n--- Processing Case {i+1}/{len(basic_cases)} ---")
+                
                 # Extract detailed information
                 detailed_case = self.click_view_details_for_case(i)
                 
@@ -387,14 +416,58 @@ class EnhancedFixedExtractor:
                     page_cases.append(enhanced_basic)
                     print(f"⚠️ Case {i+1} used basic info: {enhanced_basic['Case_No']}")
                 
+                # Ensure we're back on the main search results page
+                self.ensure_on_search_results_page()
+                
                 # Delay between cases
-                time.sleep(2)
+                time.sleep(3)
                 
             except Exception as e:
                 print(f"❌ Error processing case {i+1}: {e}")
+                # Try to get back to search results
+                self.ensure_on_search_results_page()
                 continue
         
         return page_cases
+    
+    def ensure_on_search_results_page(self):
+        """Ensure we're back on the search results page and not on error/resubmission page"""
+        try:
+            max_attempts = 3
+            attempts = 0
+            
+            while attempts < max_attempts:
+                page_source = self.driver.page_source.lower()
+                
+                # Check if we're on an error page or form resubmission page
+                if any(keyword in page_source for keyword in [
+                    'confirm form resubmission', 
+                    'err_cache_miss',
+                    'reload button to resubmit',
+                    'webpage requires data that you entered earlier'
+                ]):
+                    print(f"🔄 Error page detected (attempt {attempts + 1}) - refreshing...")
+                    self.driver.refresh()
+                    time.sleep(3)
+                    attempts += 1
+                else:
+                    # Check if we have search results (View Details links)
+                    view_details_links = self.driver.find_elements(By.XPATH, "//a[contains(text(), 'View Details')]")
+                    if view_details_links:
+                        print("✅ Back on search results page")
+                        return True
+                    else:
+                        print(f"⚠️ No View Details links found (attempt {attempts + 1})")
+                        self.driver.refresh()
+                        time.sleep(3)
+                        attempts += 1
+            
+            print("⚠️ Could not ensure search results page after max attempts")
+            return False
+            
+        except Exception as e:
+            print(f"❌ Error ensuring search results page: {e}")
+            return False
     
     def click_page_number(self, page_num):
         """Click page number - same as successful version"""
