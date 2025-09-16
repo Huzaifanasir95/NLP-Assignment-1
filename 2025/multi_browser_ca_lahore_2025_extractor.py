@@ -35,10 +35,9 @@ class MultiBrowserCALahore2025Extractor:
         self.case_queue = Queue()
         self.results_lock = threading.Lock()
         
-        # Create downloads directory
-        self.downloads_dir = "ca_lahore_2025_pdfs_multi"
-        if not os.path.exists(self.downloads_dir):
-            os.makedirs(self.downloads_dir)
+        # Create links directory info (no actual downloads)
+        self.downloads_dir = "ca_lahore_2025_pdf_links"
+        print(f"📋 PDF links will be captured (no downloads) in: {self.downloads_dir}")
         
         print(f"✅ Multi-Browser C.A. Lahore 2025 Extractor initialized with {max_workers} workers")
     
@@ -170,7 +169,7 @@ class MultiBrowserCALahore2025Extractor:
             return False
     
     def download_pdf(self, pdf_url, case_no, pdf_type, worker_id):
-        """Download PDF file"""
+        """Store PDF link information without downloading"""
         try:
             if not pdf_url or pdf_url == "N/A" or "not available" in pdf_url.lower():
                 return "No PDF Available"
@@ -179,22 +178,12 @@ class MultiBrowserCALahore2025Extractor:
             if pdf_url.startswith('/'):
                 pdf_url = urljoin(self.base_url, pdf_url)
             
-            # Create safe filename
-            safe_case_no = re.sub(r'[<>:"/\\|?*]', '_', case_no)
-            filename = f"{safe_case_no}_{pdf_type}_w{worker_id}.pdf"
-            filepath = os.path.join(self.downloads_dir, filename)
-            
-            # Download PDF with shorter timeout for speed and SSL bypass
-            response = requests.get(pdf_url, timeout=15, verify=False)
-            response.raise_for_status()
-            
-            with open(filepath, 'wb') as f:
-                f.write(response.content)
-            
-            return filepath
+            # Return the link without downloading
+            print(f"📄 Worker {worker_id}: PDF link captured for {case_no} ({pdf_type})")
+            return f"PDF Link Available: {pdf_url}"
             
         except Exception as e:
-            return f"Download Failed: {str(e)}"
+            return f"Link Processing Failed: {str(e)}"
     
     def extract_detailed_case_info(self, driver, case_index, worker_id):
         """Extract detailed case information for a specific case"""
@@ -351,14 +340,14 @@ class MultiBrowserCALahore2025Extractor:
                     }
                     
                     # Download each memo PDF
-                    print(f"📄 Worker {worker_id}: Downloading memo {i+1}: {memo_file['text']}")
-                    download_path = self.download_pdf(
+                    print(f"📄 Worker {worker_id}: Capturing PDF link {i+1}: {memo_file['text']}")
+                    link_info = self.download_pdf(
                         memo_file['href'], 
                         case_data["Case_No"], 
                         f"memo_{i+1}", 
                         worker_id
                     )
-                    file_info["Downloaded_Path"] = download_path
+                    file_info["Downloaded_Path"] = link_info
                     case_data["Petition_Appeal_Memo"]["Files"].append(file_info)
                 
                 # Keep backward compatibility - use first file
@@ -377,15 +366,15 @@ class MultiBrowserCALahore2025Extractor:
                         "Downloaded_Path": "No PDF Available"
                     }
                     
-                    # Download each judgment PDF
-                    print(f"📄 Worker {worker_id}: Downloading judgment {i+1}: {judgment_file['text']}")
-                    download_path = self.download_pdf(
+                    # Capture each judgment PDF link
+                    print(f"📄 Worker {worker_id}: Capturing judgment link {i+1}: {judgment_file['text']}")
+                    link_info = self.download_pdf(
                         judgment_file['href'], 
                         case_data["Case_No"], 
                         f"judgment_{i+1}", 
                         worker_id
                     )
-                    file_info["Downloaded_Path"] = download_path
+                    file_info["Downloaded_Path"] = link_info
                     case_data["Judgement_Order"]["Files"].append(file_info)
                 
                 # Keep backward compatibility - use first file
@@ -579,7 +568,7 @@ class MultiBrowserCALahore2025Extractor:
             print(f"❌ Parallel extraction failed: {e}")
             return False
     
-    def save_results(self, filename="ca_lahore_2025_multi_browser_results.json"):
+    def save_results(self, filename="ca_lahore_2025_links_only_results.json"):
         """Save results to JSON file"""
         try:
             # Remove duplicates based on Case_No
@@ -605,7 +594,7 @@ class MultiBrowserCALahore2025Extractor:
             if unique_cases:
                 print(f"\n📋 EXTRACTION SUMMARY:")
                 print(f"   Total Unique Cases: {len(unique_cases)}")
-                print(f"   PDF Downloads Directory: {self.downloads_dir}")
+                print(f"   PDF Links Captured: {self.downloads_dir}")
                 
                 pdf_count = 0
                 memo_pdfs = 0
@@ -615,17 +604,17 @@ class MultiBrowserCALahore2025Extractor:
                     memo_path = case.get('Petition_Appeal_Memo', {}).get('Downloaded_Path', '')
                     judgment_path = case.get('Judgement_Order', {}).get('Downloaded_Path', '')
                     
-                    if memo_path and memo_path != 'No PDF Available' and 'Failed' not in memo_path:
+                    if memo_path and memo_path != 'No PDF Available' and 'PDF Link Available' in memo_path:
                         memo_pdfs += 1
-                    if judgment_path and judgment_path != 'No PDF Available' and 'Failed' not in judgment_path:
+                    if judgment_path and judgment_path != 'No PDF Available' and 'PDF Link Available' in judgment_path:
                         judgment_pdfs += 1
                     
-                    if memo_path != 'No PDF Available' or judgment_path != 'No PDF Available':
+                    if 'PDF Link Available' in memo_path or 'PDF Link Available' in judgment_path:
                         pdf_count += 1
                 
-                print(f"   Cases with PDFs: {pdf_count}")
-                print(f"   Memo PDFs Downloaded: {memo_pdfs}")
-                print(f"   Judgment PDFs Downloaded: {judgment_pdfs}")
+                print(f"   Cases with PDF Links: {pdf_count}")
+                print(f"   Memo PDF Links: {memo_pdfs}")
+                print(f"   Judgment PDF Links: {judgment_pdfs}")
                 
                 # Show sample cases
                 print(f"\n📄 Sample Cases:")
@@ -638,8 +627,8 @@ class MultiBrowserCALahore2025Extractor:
                     memo_path = case.get('Petition_Appeal_Memo', {}).get('Downloaded_Path', 'N/A')
                     judgment_path = case.get('Judgement_Order', {}).get('Downloaded_Path', 'N/A')
                     
-                    print(f"      Memo PDF: {'✅' if memo_path != 'No PDF Available' else '❌'}")
-                    print(f"      Judgment PDF: {'✅' if judgment_path != 'No PDF Available' else '❌'}")
+                    print(f"      Memo PDF Link: {'✅' if 'PDF Link Available' in memo_path else '❌'}")
+                    print(f"      Judgment PDF Link: {'✅' if 'PDF Link Available' in judgment_path else '❌'}")
             
             return True
             
