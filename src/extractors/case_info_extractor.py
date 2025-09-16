@@ -22,15 +22,10 @@ class CaseInfoExtractor(BaseExtractor):
     def __init__(self):
         super().__init__()
         self.url = Config.CASE_INFO_URL
-        self.search_strategies = [
-            {"case_type": "Civil Appeals", "registry": "Lahore"},
-            {"case_type": "Civil Appeals", "registry": "Karachi"},
-            {"case_type": "Criminal Appeals", "registry": "Lahore"},
-            {"case_type": "Criminal Appeals", "registry": "Karachi"},
-            {"case_type": "Constitution Petitions", "registry": "Islamabad"},
-            {"case_type": "Review Petitions", "registry": "Lahore"},
-            {"case_type": "Miscellaneous Applications", "registry": "Karachi"}
-        ]
+        # Generate comprehensive strategies for all years and combinations
+        Config.generate_comprehensive_strategies()
+        self.search_strategies = Config.COMPREHENSIVE_STRATEGIES
+        print(f"🎯 Initialized with {len(self.search_strategies)} search strategies")
     
     def extract_data(self):
         """Extract case information data with multiple search strategies"""
@@ -66,15 +61,15 @@ class CaseInfoExtractor(BaseExtractor):
         return len(all_cases) > 0
     
     def perform_search(self, strategy):
-        """Perform search with given strategy"""
+        """Perform search with given strategy using correct element IDs"""
         try:
             # Wait for page to load
             time.sleep(3)
             
-            # Fill case type
+            # Fill case type using correct ID
             case_type = strategy.get("case_type")
             if case_type:
-                case_type_select = safe_find_element(self.driver, By.ID, "ctl00_ContentPlaceHolder1_ddlCaseType")
+                case_type_select = safe_find_element(self.driver, By.ID, "ddlCaseType")
                 if case_type_select:
                     select = Select(case_type_select)
                     try:
@@ -90,10 +85,10 @@ class CaseInfoExtractor(BaseExtractor):
                                 print(f"✅ Selected alternative: {option.text}")
                                 break
             
-            # Fill registry
+            # Fill registry using correct ID
             registry = strategy.get("registry")
             if registry:
-                registry_select = safe_find_element(self.driver, By.ID, "ctl00_ContentPlaceHolder1_ddlRegistry")
+                registry_select = safe_find_element(self.driver, By.ID, "ddlRegistry")
                 if registry_select:
                     select = Select(registry_select)
                     try:
@@ -103,20 +98,21 @@ class CaseInfoExtractor(BaseExtractor):
                     except:
                         print(f"⚠️ Registry '{registry}' not found")
             
-            # Fill year
-            year_select = safe_find_element(self.driver, By.ID, "ctl00_ContentPlaceHolder1_ddlYear")
+            # Fill year using correct ID
+            year = strategy.get("year", Config.TARGET_YEAR)
+            year_select = safe_find_element(self.driver, By.ID, "ddlYear")
             if year_select:
                 select = Select(year_select)
                 try:
-                    select.select_by_visible_text(str(Config.TARGET_YEAR))
-                    print(f"✅ Selected year: {Config.TARGET_YEAR}")
+                    select.select_by_visible_text(str(year))
+                    print(f"✅ Selected year: {year}")
                     time.sleep(1)
                 except:
-                    print(f"⚠️ Year {Config.TARGET_YEAR} not found in dropdown")
+                    print(f"⚠️ Year {year} not found in dropdown")
                     return False
             
-            # Submit search
-            search_button = safe_find_element(self.driver, By.ID, "ctl00_ContentPlaceHolder1_btnSearch")
+            # Submit search using correct button ID
+            search_button = safe_find_element(self.driver, By.ID, "btnSearch")
             if search_button:
                 print("🔍 Clicking search button...")
                 search_button.click()
@@ -129,8 +125,6 @@ class CaseInfoExtractor(BaseExtractor):
                 alert_text = handle_alert(self.driver)
                 if alert_text:
                     print(f"⚠️ Search alert: {alert_text}")
-                    if "at least 2 search criteria" in alert_text.lower():
-                        print("⚠️ Need more search criteria, continuing anyway...")
                 
                 return True
             else:
@@ -163,9 +157,8 @@ class CaseInfoExtractor(BaseExtractor):
                     if len(cells) >= 3:  # Minimum expected columns
                         case_data = self.extract_case_from_row(cells)
                         if case_data and case_data.get('Case_No') != "N/A":
-                            # Only include 2025 cases
-                            if str(Config.TARGET_YEAR) in case_data.get('Case_No', ''):
-                                cases.append(case_data)
+                            # Accept all cases, let the calling code handle year filtering
+                            cases.append(case_data)
             
             # Also try alternative extraction methods
             if not cases:
@@ -179,13 +172,28 @@ class CaseInfoExtractor(BaseExtractor):
             return cases
     
     def extract_case_from_row(self, cells):
-        """Extract case information from table row"""
+        """Extract case information from table row with complete structure"""
         try:
             case_data = {
                 "Case_No": "N/A",
-                "Case_Title": "N/A", 
-                "Status": "N/A",
-                "Institution_Date": "N/A"
+                "Case_Title": "N/A",
+                "Status": "N/A", 
+                "Institution_Date": "N/A",
+                "Disposal_Date": "N/A",
+                "Advocates": {
+                    "ASC": "N/A",
+                    "AOR": "N/A", 
+                    "Prosecutor": "N/A"
+                },
+                "Petition_Appeal_Memo": {
+                    "File": "N/A",
+                    "Type": "N/A"
+                },
+                "History": [],
+                "Judgement_Order": {
+                    "File": "N/A",
+                    "Type": "N/A"
+                }
             }
             
             # Extract based on common patterns
@@ -195,23 +203,41 @@ class CaseInfoExtractor(BaseExtractor):
                 # Case number is usually in first few columns
                 if i == 0 or (i <= 2 and any(char.isdigit() for char in cell_text)):
                     potential_case_no = extract_case_number(cell_text)
-                    if potential_case_no != "N/A" and str(Config.TARGET_YEAR) in potential_case_no:
+                    if potential_case_no != "N/A":
                         case_data["Case_No"] = potential_case_no
                 
                 # Case title is usually the longest text
-                elif len(cell_text) > 20 and "vs" in cell_text.lower():
+                elif len(cell_text) > 20 and any(keyword in cell_text.lower() for keyword in ['vs', 'v.', 'versus']):
                     case_data["Case_Title"] = cell_text[:200]  # Limit length
                 
                 # Status keywords
-                elif any(keyword in cell_text.lower() for keyword in ['pending', 'decided', 'dismissed', 'allowed']):
+                elif any(keyword in cell_text.lower() for keyword in ['pending', 'decided', 'dismissed', 'allowed', 'disposed']):
                     case_data["Status"] = cell_text
                 
                 # Date patterns
                 elif any(keyword in cell_text.lower() for keyword in ['date', 'view details']):
                     case_data["Institution_Date"] = cell_text
+                
+                # Check for advocate information in cells
+                elif any(keyword in cell_text.lower() for keyword in ['advocate', 'counsel', 'lawyer']):
+                    # Try to parse advocate info
+                    if 'asc' in cell_text.lower():
+                        case_data["Advocates"]["ASC"] = cell_text
+                    elif 'aor' in cell_text.lower():
+                        case_data["Advocates"]["AOR"] = cell_text
+                    elif 'prosecutor' in cell_text.lower():
+                        case_data["Advocates"]["Prosecutor"] = cell_text
+                
+                # Check for file links
+                elif 'pdf' in cell_text.lower() or 'file' in cell_text.lower():
+                    # Check if it's a judgment or memo
+                    if any(keyword in cell_text.lower() for keyword in ['judgment', 'order']):
+                        case_data["Judgement_Order"]["File"] = cell_text
+                    elif any(keyword in cell_text.lower() for keyword in ['petition', 'memo', 'appeal']):
+                        case_data["Petition_Appeal_Memo"]["File"] = cell_text
             
             # Validate that we have meaningful data
-            if case_data["Case_No"] != "N/A" and str(Config.TARGET_YEAR) in case_data["Case_No"]:
+            if case_data["Case_No"] != "N/A":
                 return case_data
             
         except Exception as e:

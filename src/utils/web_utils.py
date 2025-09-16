@@ -219,7 +219,7 @@ def get_current_page_number(driver):
 def click_next_page(driver, current_page=None):
     """Click next page button or numbered pagination"""
     try:
-        # First try to get current page number
+        # Try numbered pagination first
         if current_page is None:
             current_page = get_current_page_number(driver)
         
@@ -230,8 +230,9 @@ def click_next_page(driver, current_page=None):
         # Try to find numbered pagination for next page
         numbered_selectors = [
             f"//a[text()='{next_page}']",
+            f"//a[normalize-space(text())='{next_page}']",
             f"//a[contains(@href, 'Page${next_page}')]",
-            f"//a[contains(text(), '{next_page}') and string-length(text()) <= 3]"
+            f"//input[@value='{next_page}']"
         ]
         
         for selector in numbered_selectors:
@@ -243,26 +244,26 @@ def click_next_page(driver, current_page=None):
                     time.sleep(Config.DELAY_BETWEEN_PAGES)
                     return True
             except Exception as e:
-                print(f"⚠️ Failed to click page {next_page}: {e}")
                 continue
         
         # Fallback to traditional "Next" buttons
-        next_buttons = check_pagination(driver)
+        next_button_selectors = [
+            "//a[contains(text(), 'Next')]",
+            "//a[contains(text(), '>>')]", 
+            "//a[contains(text(), 'next')]",
+            "//input[@value='Next']",
+            "//button[contains(text(), 'Next')]"
+        ]
         
-        for button in next_buttons:
+        for selector in next_button_selectors:
             try:
-                # Check if button is enabled and clickable
-                if button.is_enabled() and button.is_displayed():
-                    button_text = button.text.lower()
-                    
-                    # Look for "next" or ">" indicators
-                    if any(keyword in button_text for keyword in ['next', '>', '>>']):
-                        print(f"🔄 Clicking next page button: {button.text}")
-                        driver.execute_script("arguments[0].click();", button)
-                        time.sleep(Config.DELAY_BETWEEN_PAGES)
-                        return True
+                next_button = driver.find_element(By.XPATH, selector)
+                if next_button and next_button.is_enabled() and next_button.is_displayed():
+                    print(f"🔄 Clicking next page button: {next_button.text}")
+                    driver.execute_script("arguments[0].click();", next_button)
+                    time.sleep(Config.DELAY_BETWEEN_PAGES)
+                    return True
             except Exception as e:
-                print(f"⚠️ Failed to click button: {e}")
                 continue
         
         print("⚠️ No clickable next page button found")

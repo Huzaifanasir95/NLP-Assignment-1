@@ -109,49 +109,74 @@ class BaseExtractor(ABC):
             return False
     
     def extract_with_pagination(self, extraction_function, max_pages=None):
-        """Extract data with pagination support"""
+        """Extract data with pagination support using numbered pagination"""
         max_pages = max_pages or Config.MAX_PAGES_PER_SEARCH
         page_count = 0
         
         while page_count < max_pages:
             try:
-                # Get current page number from pagination
-                current_page_num = get_current_page_number(self.driver)
-                print(f"\n📄 Processing page {current_page_num} (iteration {self.current_page})")
+                current_page_num = page_count + 1
+                print(f"\n📄 Processing page {current_page_num}")
                 
                 # Extract data from current page
                 page_data = extraction_function()
                 
                 if page_data:
-                    # Filter for 2025 cases only
-                    filtered_data = filter_2025_cases(page_data)
-                    self.extracted_data.extend(filtered_data)
-                    self.total_extracted += len(filtered_data)
+                    # Add all data - let specific extractors handle filtering
+                    self.extracted_data.extend(page_data)
+                    self.total_extracted += len(page_data)
                     
-                    log_extraction_progress(current_page_num, len(filtered_data))
+                    log_extraction_progress(current_page_num, len(page_data))
                 else:
                     print("⚠️ No data extracted from current page")
                 
-                # Try to go to next page
-                if not click_next_page(self.driver, current_page_num):
+                # Try to go to next page using numbered pagination
+                if not self.click_page_number(current_page_num + 1):
                     print("✅ No more pages available or reached end")
                     break
                 
                 # Wait for new page to load
                 wait_for_page_load(self.driver)
                 
-                self.current_page += 1
                 page_count += 1
                 
                 # Add delay between pages
                 time.sleep(Config.DELAY_BETWEEN_PAGES)
                 
             except Exception as e:
-                print(f"❌ Error on page {self.current_page}: {e}")
+                print(f"❌ Error on page {current_page_num}: {e}")
                 break
         
-        print(f"\n🎯 Total extraction complete: {self.total_extracted} cases from {page_count + 1} pages")
-        return self.extracted_data
+    def click_page_number(self, page_num):
+        """Click specific page number for pagination"""
+        try:
+            print(f"🔄 Looking for page {page_num}")
+            
+            # Try numbered pagination links
+            page_selectors = [
+                f"//a[text()='{page_num}']",
+                f"//a[contains(@href, 'Page${page_num}')]",
+                f"//a[normalize-space(text())='{page_num}']",
+                f"//input[@value='{page_num}']"
+            ]
+            
+            for selector in page_selectors:
+                try:
+                    page_link = self.driver.find_element(By.XPATH, selector)
+                    if page_link and page_link.is_enabled() and page_link.is_displayed():
+                        print(f"🔄 Clicking page {page_num}")
+                        self.driver.execute_script("arguments[0].click();", page_link)
+                        time.sleep(2)
+                        return True
+                except Exception as e:
+                    continue
+            
+            print(f"⚠️ Page {page_num} not found or not clickable")
+            return False
+            
+        except Exception as e:
+            print(f"❌ Error clicking page {page_num}: {e}")
+            return False
     
     def save_data(self, filename=None, data_type="case_info"):
         """Save extracted data to JSON file"""

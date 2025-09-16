@@ -10,25 +10,66 @@ class Config:
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     DATA_DIR = os.path.join(BASE_DIR, "data")
     
-    # Data directories
-    CASE_INFO_DIR = os.path.join(DATA_DIR, "case_info")
-    JUDGMENTS_DIR = os.path.join(DATA_DIR, "judgments")
-    PDF_DIR = os.path.join(DATA_DIR, "pdfs")
+    # Data directories - matching the existing structure
+    CASE_INFO_DIR = os.path.join(DATA_DIR, "SupremeCourt_CaseInfo")
+    JUDGMENTS_DIR = os.path.join(DATA_DIR, "SupremeCourt_Judgements")
+    
+    # PDF subdirectories
+    JUDGMENT_PDF_DIR = os.path.join(CASE_INFO_DIR, "judgementspdf")
+    MEMO_PDF_DIR = os.path.join(CASE_INFO_DIR, "memopdf")
+    GENERAL_PDF_DIR = os.path.join(CASE_INFO_DIR, "pdfs")
     
     # URLs
     CASE_INFO_URL = "https://scp.gov.pk/OnlineCaseInformation.aspx"
     JUDGMENT_URL = "https://www.supremecourt.gov.pk/judgement-search/"
     
     # File names
-    CASE_INFO_JSON = "SupremeCourt_CaseInfo_2025.json"
-    JUDGMENTS_JSON = "SupremeCourt_Judgments_2025.json"
+    CASE_INFO_JSON = "SupremeCourt_CaseInfo.Json"
+    JUDGMENTS_JSON = "SupremeCourt_Judgments.json"
     
-    # Target year for extraction
-    TARGET_YEAR = 2025
+    # Target years for extraction (1980-2025)
+    START_YEAR = 1980
+    END_YEAR = 2025
+    TARGET_YEAR = 2025  # For compatibility with existing code
     
-    # Extraction settings
-    REGISTRIES = ['Islamabad', 'Lahore', 'Karachi']
-    CASE_TYPES = ['C.A.', 'C.M.A.', 'C.P.', 'C.R.P.']
+    # All years for comprehensive extraction
+    ALL_YEARS = list(range(START_YEAR, END_YEAR + 1))
+    
+    # Extraction settings - comprehensive coverage
+    REGISTRIES = [
+        'Islamabad', 'Lahore', 'Karachi', 'Peshawar', 'Quetta'
+    ]
+    
+    CASE_TYPES = [
+        'Civil Appeals', 'Criminal Appeals', 'Constitution Petitions',
+        'Review Petitions', 'Miscellaneous Applications', 'Original Jurisdiction',
+        'Suo Moto Cases', 'Contempt Cases', 'Reference Cases'
+    ]
+    
+    # Search strategies for comprehensive extraction
+    COMPREHENSIVE_STRATEGIES = []
+    
+    @classmethod
+    def generate_comprehensive_strategies(cls):
+        """Generate all combinations of registries, case types, and years"""
+        strategies = []
+        
+        # Priority years (recent years first)
+        priority_years = [2025, 2024, 2023, 2022, 2021]
+        other_years = [year for year in cls.ALL_YEARS if year not in priority_years]
+        
+        # Combine priority years with all combinations
+        for year in priority_years + other_years:
+            for registry in cls.REGISTRIES:
+                for case_type in cls.CASE_TYPES:
+                    strategies.append({
+                        "year": year,
+                        "registry": registry,
+                        "case_type": case_type
+                    })
+        
+        cls.COMPREHENSIVE_STRATEGIES = strategies
+        return strategies
     
     # Selenium settings
     TIMEOUT = 60
@@ -67,7 +108,9 @@ class Config:
             cls.DATA_DIR,
             cls.CASE_INFO_DIR,
             cls.JUDGMENTS_DIR,
-            cls.PDF_DIR
+            cls.JUDGMENT_PDF_DIR,
+            cls.MEMO_PDF_DIR,
+            cls.GENERAL_PDF_DIR
         ]
         
         for directory in directories:
@@ -84,7 +127,28 @@ class Config:
             return os.path.join(cls.CASE_INFO_DIR, filename)
         elif data_type == "judgments":
             return os.path.join(cls.JUDGMENTS_DIR, filename)
+        elif data_type == "judgment_pdfs":
+            return os.path.join(cls.JUDGMENT_PDF_DIR, filename)
+        elif data_type == "memo_pdfs":
+            return os.path.join(cls.MEMO_PDF_DIR, filename)
         elif data_type == "pdfs":
-            return os.path.join(cls.PDF_DIR, filename)
+            return os.path.join(cls.GENERAL_PDF_DIR, filename)
         else:
             return os.path.join(cls.DATA_DIR, filename)
+    
+    @classmethod
+    def get_extraction_summary_config(cls):
+        """Get summary of extraction configuration"""
+        return {
+            "total_years": len(cls.ALL_YEARS),
+            "year_range": f"{cls.START_YEAR}-{cls.END_YEAR}",
+            "registries": len(cls.REGISTRIES),
+            "case_types": len(cls.CASE_TYPES),
+            "total_strategies": len(cls.REGISTRIES) * len(cls.CASE_TYPES) * len(cls.ALL_YEARS),
+            "output_directories": [
+                cls.CASE_INFO_DIR,
+                cls.JUDGMENT_PDF_DIR,
+                cls.MEMO_PDF_DIR,
+                cls.GENERAL_PDF_DIR
+            ]
+        }
