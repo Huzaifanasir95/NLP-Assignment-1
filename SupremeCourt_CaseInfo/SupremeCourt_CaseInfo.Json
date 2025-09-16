@@ -1,199 +1,1451 @@
-{
-  "Cases": [
-    {
-      "Case_No": "Crl.P.L.A.1413/2025",
-      "Case_Title": "Asim Bajwa v. The State through Federal Prosecutor, Islamabad and another",
-      "Status": "Disposed",
-      "Institution_Date": "27/08/2025",
-      "Disposal_Date": "03/09/2025",
-
-      "Advocates": {
-        "ASC": "Abdul Rahman Hur (ASC)",
-        "AOR": "Jawaid Masood Tahir Bhatti (AOR)",
-        "Prosecutor": "P.G. Islamabad (-)"
-      },
-
-      "Petition_Appeal_Memo": {
-        "File": "memopdfs/memo_CrlPLA1413-2025.pdf",
-        "Type": "Digital Copy"
-      },
-
-      "History": [
-        {
-          "Fixation_Date": "03/09/2025",
-          "Result": "Dismissed as Not Pressed",
-          "Bench": "REGULAR BENCH - II",
-          "Judges": [
-            "JUSTICE SYED HASAN AZHAR RIZVI",
-            "JUSTICE MALIK SHAHZAD AHMAD KHAN"
-          ],
-          "List_Type": "Final Cause List No. 38",
-          "Serial_No": 9,
-          "Location": "Islamabad"
-        }
-      ],
-
-      "Judgement_Order": {
-        "File": "judgementpdfs/judgement_CrlPLA1413-2025.pdf",
-        "Type": "Judgement/Order PDF"
-      }
+[
+  {
+    "Case_No": "C.A.76-L/2025",
+    "Case_Title": "Muhammad Tahir Khan v. Mst. Nazeer Begum (deceased) through her L.Rs, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
     },
-
-    {
-      "Case_No": "Const.P.1245/2025",
-      "Case_Title": "Rehana Nazir v. Government of Punjab",
-      "Status": "Pending",
-      "Institution_Date": "15/07/2025",
-      "Disposal_Date": "NaN",
-
-      "Advocates": {
-        "ASC": "Syed Kamran Ali (ASC)",
-        "AOR": "Shahbaz Hussain (AOR)",
-        "Prosecutor": "N/A"
-      },
-
-      "Petition_Appeal_Memo": {
-        "File": "memopdfs/memo_ConstP1245-2025.pdf",
-        "Type": "Digital Copy"
-      },
-
-      "History": [
-        {
-          "Fixation_Date": "10/09/2025",
-          "Result": "Adjourned",
-          "Bench": "REGULAR BENCH - I",
-          "Judges": [
-            "JUSTICE YAHYA AFRIDI",
-            "JUSTICE AMINUDDIN KHAN"
-          ],
-          "List_Type": "Cause List No. 12",
-          "Serial_No": 4,
-          "Location": "Lahore"
-        }
-      ],
-
-      "Judgement_Order": {
-        "File": "NaN",
-        "Type": "NaN"
-      }
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
     },
-
-    {
-      "Case_No": "C.A.947/2024",
-      "Case_Title": "Commissioner Inland Revenue v. Mayfair Spinning Mills Ltd.",
-      "Status": "Disposed",
-      "Institution_Date": "19/07/2024",
-      "Disposal_Date": "02/09/2025",
-
-      "Advocates": {
-        "ASC": "Aftab Maqsood (ASC)",
-        "AOR": "NaN",
-        "Prosecutor": "Attorney General Office"
-      },
-
-      "Petition_Appeal_Memo": {
-        "File": "memopdfs/memo_CA947-2024.pdf",
-        "Type": "Scanned Copy"
-      },
-
-      "History": [
-        {
-          "Fixation_Date": "02/09/2025",
-          "Result": "Appeal Dismissed",
-          "Bench": "FULL BENCH",
-          "Judges": [
-            "JUSTICE SYED HASAN AZHAR RIZVI",
-            "JUSTICE SHAHID WAHEED",
-            "JUSTICE ALI ZIA BAJWA"
-          ],
-          "List_Type": "Supplementary List No. 7",
-          "Serial_No": 15,
-          "Location": "Islamabad"
-        }
-      ],
-
-      "Judgement_Order": {
-        "File": "judgementpdfs/judgement_CA947-2024.pdf",
-        "Type": "Judgement/Order PDF"
-      }
-    },
-
-    {
-      "Case_No": "H.R.C.511/2025",
-      "Case_Title": "Human Rights Cell Suo Moto v. SHO Islamabad",
-      "Status": "Pending",
-      "Institution_Date": "05/09/2025",
-      "Disposal_Date": "NaN",
-
-      "Advocates": {
-        "ASC": "NaN",
-        "AOR": "NaN",
-        "Prosecutor": "Advocate General Islamabad"
-      },
-
-      "Petition_Appeal_Memo": {
-        "File": "memopdfs/memo_HRC511-2025.pdf",
-        "Type": "Digital Copy"
-      },
-
-      "History": [
-        {
-          "Fixation_Date": "08/09/2025",
-          "Result": "Notice Issued",
-          "Bench": "SPECIAL BENCH - HUMAN RIGHTS",
-          "Judges": [
-            "CHIEF JUSTICE OF PAKISTAN",
-            "JUSTICE SARDAR TARIQ MASOOD"
-          ],
-          "List_Type": "Cause List No. 21",
-          "Serial_No": 1,
-          "Location": "Islamabad"
-        }
-      ],
-
-      "Judgement_Order": {
-        "File": "NaN",
-        "Type": "NaN"
-      }
-    },
-
-    {
-      "Case_No": "Crl.A.333/2023",
-      "Case_Title": "State v. Shabbir Ahmed",
-      "Status": "Disposed",
-      "Institution_Date": "11/12/2023",
-      "Disposal_Date": "01/09/2025",
-
-      "Advocates": {
-        "ASC": "Muhammad Faisal Siddiqui (ASC)",
-        "AOR": "NaN",
-        "Prosecutor": "Prosecutor General Punjab"
-      },
-
-      "Petition_Appeal_Memo": {
-        "File": "memopdfs/memo_CrlA333-2023.pdf",
-        "Type": "Digital Copy"
-      },
-
-      "History": [
-        {
-          "Fixation_Date": "01/09/2025",
-          "Result": "Conviction Upheld",
-          "Bench": "REGULAR BENCH - III",
-          "Judges": [
-            "JUSTICE MUNIB AKHTAR",
-            "JUSTICE MUHAMMAD ALI MAZAR"
-          ],
-          "List_Type": "Final Cause List No. 19",
-          "Serial_No": 6,
-          "Location": "Karachi"
-        }
-      ],
-
-      "Judgement_Order": {
-        "File": "judgementpdfs/judgement_CrlA333-2023.pdf",
-        "Type": "Judgement/Order PDF"
-      }
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
     }
-  ]
-}
+  },
+  {
+    "Case_No": "C.A.78-L/2025",
+    "Case_Title": "Shabbir Ahmad v. The Election Commission of Pakistan, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.73-L/2025",
+    "Case_Title": "Muhammad Ishtiaq v. Rana Yamin Khan and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.74-L/2025",
+    "Case_Title": "Akbar Khan v. Jamshed Khan, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.75-L/2025",
+    "Case_Title": "Shahab ud Din v. Mst. Qamar Bibi (deceased) through L.Rs, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.68-L/2025",
+    "Case_Title": "Shahzad Vicky v. Habal Masih",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.69-L/2025",
+    "Case_Title": "Shahzad Vicky v. Habal Masih",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.70-L/2025",
+    "Case_Title": "Tahira Begum @ Tahira Shafique v. Zulfiqar Ahmad Khan",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.71-L/2025",
+    "Case_Title": "Tahira Begum @ Tahira Shafique v. Zulfiqar Ahmad Khan",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.77-L/2025",
+    "Case_Title": "Abdul Ghaffar v. Anwar-ul-Haq, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.66-L/2025",
+    "Case_Title": "The Land Acquisition Collector (Assistant Commissioner Headquarters), Lahore, etc v. Zahid Hassan (deceased) through his L.Rs",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.65-L/2025",
+    "Case_Title": "Resham Bibi (deceased) through her legal heirs, etc v. Ali Muhammad Dhero (deceased) through his legal heirs and Others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.64-L/2025",
+    "Case_Title": "Nazeer Ahmad v. Allah Ditta, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.63-L/2025",
+    "Case_Title": "Ghulam Rasool v. Habib Ullah (deceased) through his L.Rs, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.62-L/2025",
+    "Case_Title": "Muhammad Umar Liaqat v. Returning Officer PP-33, Gujrat and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "12345678910...",
+    "Case_Title": "1",
+    "Status": "2",
+    "Institution_Date": "3",
+    "Disposal_Date": "4",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.320-K/2025",
+    "Case_Title": "M/s Pakistan Steel Mills Corporation (Pvt) Ltd v. Competition Commission of Pakistan & Frontier Foundry (Pvt) Ltd & Others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.315-K/2025",
+    "Case_Title": "Adeel Ahmed v. Election Commission, Pakistan & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.311-K/2025",
+    "Case_Title": "Syed Faisal Ali v. Election Commission, Pakistan, through its Secretary, Islamabad & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.310-K/2025",
+    "Case_Title": "Abdullah Khokhar through his LRs v. Mst. Shamshad & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.134-K/2025",
+    "Case_Title": "Tariq Hussain v. Election Commission of Pakistan & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.135-K/2025",
+    "Case_Title": "Pir Manzoor Ahmed Jan v. The Deputy District Officer Revenue, and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.41-K/2025",
+    "Case_Title": "Ali Raza Chandio & others v. Pir Syed Mashooque Mohiuddin & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.34-K/2025",
+    "Case_Title": "Muhammad Reyaz v. M/s Pakistan National Shipping Corporation, Karachi & another",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.33-K/2025",
+    "Case_Title": "Syed Muhammad Raza Rizvi v. Muhammad Umer & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.30-K/2025",
+    "Case_Title": "Ghani Builders v. Mst. Nida Munawar & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.32-K/2025",
+    "Case_Title": "The Province of Sindh & others v. Mst.Bibi Shah Sultani",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.40-K/2025",
+    "Case_Title": "Qazi Khalid Ali v. Federation of Pakistan through its Secretary Ministry of Law and Justice Government of Pakistan & others",
+    "Status": "Disposed",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.A.29-K/2025",
+    "Case_Title": "Syed Ahmed Ali v. Mst. Zubaida Saleem & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.7887/2025",
+    "Case_Title": "Qaim Khan & others v. Collector Land Acquisition, Swabi",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.15910/2025",
+    "Case_Title": "M/s AM & MJ Builders Pvt Limited Sukkur and another v. National Highway Authority (NHA), through its Chairman Islamabad",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.17098/2025",
+    "Case_Title": "Hasoo Khan (deceased) through legal heirs v. Member (Consolidation) Punjab Board of Revenue, Lahore and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.18005/2025",
+    "Case_Title": "Raheem Bakhsh and others v. Member (Consolidation) Punjab Board of Revenue, Lahore and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.18008/2025",
+    "Case_Title": "Allah Bakhsh (deceased) through legal heirs and others v. Member (Consolidation) Punjab Board of Revenue, Lahore and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.7790/2025",
+    "Case_Title": "M/s Nawaz Ghee & Oil Mills Pvt Ltd. & others v. M/s Askari Commercial Bank Ltd.",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.7835/2025",
+    "Case_Title": "Sadaqat Ali, etc v. Jamshad Ahmed, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.7836/2025",
+    "Case_Title": "Sadaqat Ali, etc v. Khurshid Ahmad (decd.) through his L.Rs, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.7838/2025",
+    "Case_Title": "Ameer Abdullah and others v. Mst. Karam Khatoon",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.4743/2025",
+    "Case_Title": "Ahmad Ali and others v. Akbar Ali and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.7776/2025",
+    "Case_Title": "Javed Akhtar, etc v. Sadaf Ilmas, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.17088/2025",
+    "Case_Title": "Muhammad Ayub v. The Additional District Judge, Dera Ghazi Khan and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.4399/2025",
+    "Case_Title": "Wapda through its Chairman, Lahore and others v. Shaista Fazal and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.7249/2025",
+    "Case_Title": "Raheel Ahmad Ch. v. Izhar ul Haq and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.7635/2025",
+    "Case_Title": "M/s. Bashir Jamil & Brothers (Pvt) Ltd and another v. Usman Latif and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1507-L/2025",
+    "Case_Title": "M/s. Gojra Samundri Sugar Mills, Lahore, etc v. Innovative Investment Bank, Lahore",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1400-L/2025",
+    "Case_Title": "Ghulam Nabi (deceased) through his L.Rs, etc v. Imran Rasool, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1267-L/2025",
+    "Case_Title": "Muhammad Anwar and another v. Abdul Rehman and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1353-L/2025",
+    "Case_Title": "Eden Builders (Pvt) Limited, Lahore through its authorized Officer v. Basharat Ali",
+    "Status": "Disposed",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1354-L/2025",
+    "Case_Title": "Eden Builder (Pvt) Ltd, Lahore v. Nasir Ali",
+    "Status": "Disposed",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1284-L/2025",
+    "Case_Title": "Zafar Iqbal, etc v. Naziran Bibi, etc",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1220-L/2025",
+    "Case_Title": "Syed Ikram-ul-Hassan v. Bashir Ahmad & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1247-L/2025",
+    "Case_Title": "Province of Punjab through Chief Secretary, Govt. of the Punjab, Lahore v. Member Judicial (V)/Settlement Commissioner, Board of Revenue Punjab, Lahore and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1206-L/2025",
+    "Case_Title": "Muhammad Maalik v. Mukhtar Ahmad Cheema",
+    "Status": "Disposed",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1194-L/2024",
+    "Case_Title": "Lahore Development Authority, Lahore through its Director General v. Ghazala Shaheen and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1195-L/2024",
+    "Case_Title": "Lahore Development Authority, Lahore v. Ghazala Shaheen and another",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1007-L/2025",
+    "Case_Title": "Khurshid Zehra v. Member (Judicial-V), Board of Revenue/chief Settlement Commissioner, Punjab, Lahore",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1041-K/2025",
+    "Case_Title": "Muhammad Irfan Noor Khan v. Addl. Inspector General of Police Karachi Range and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.1014-K/2025",
+    "Case_Title": "Mst. Hajiani Khatija since deceased through her legal heirs: & others v. Muhammad Saleem Ghanchi & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.981-K/2025",
+    "Case_Title": "Tahir Muhammad v. Assistant Land Acquisition Officer & Other",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.969-K/2025",
+    "Case_Title": "Mst. Sabra Jamil v. Muhammad Jamil",
+    "Status": "Disposed",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.963-K/2025",
+    "Case_Title": "Muhammad Suleman S/o Satabo Khan v. Abdul Shakoor & Others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.964-K/2025",
+    "Case_Title": "Muhammad Suleman v. Abdul Shakoor & others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.962-K/2025",
+    "Case_Title": "Muhammad Suleman S/o Muhammad Ali v. Abdul Shakoor & Others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.955-K/2025",
+    "Case_Title": "Haji Muhammad Ismail v. Muhammad Saleem and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.932-K/2025",
+    "Case_Title": "Ali Asghar Hashim Ali v. Shabbir Hussain & others",
+    "Status": "Disposed",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.921-K/2025",
+    "Case_Title": "Khurram Shehzad and another v. Ghulam Ali and another",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.922-K/2025",
+    "Case_Title": "Abdul Fattah Soomro v. Mst. Rukhsana and others",
+    "Status": "Pending",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.833-K/2025",
+    "Case_Title": "Administrator/Chief Municipal Officer, Municipal Committee K.N. Shah District Dadu v. Muhammad Nawaz and others",
+    "Status": "Disposed",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  },
+  {
+    "Case_No": "C.M.A.834-K/2025",
+    "Case_Title": "Muhammad Asim Baig v. The Director General M/o Narcotics Control and others",
+    "Status": "Disposed",
+    "Institution_Date": "View Details",
+    "Disposal_Date": "N/A",
+    "Advocates": {
+      "ASC": "N/A",
+      "AOR": "N/A",
+      "Prosecutor": "N/A"
+    },
+    "Petition_Appeal_Memo": {
+      "File": "N/A",
+      "Type": "N/A"
+    },
+    "History": [],
+    "Judgement_Order": {
+      "File": "N/A",
+      "Type": "N/A"
+    }
+  }
+]

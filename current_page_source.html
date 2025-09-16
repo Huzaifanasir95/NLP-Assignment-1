@@ -1,0 +1,373 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>
+	Case Details
+</title><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        function scrollToCaseDetails() {
+            var anchor = document.getElementsByName('caseDetailsAnchor')[0];
+            if (anchor) {
+                anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function validateSearchCount() {
+            var cnicField = document.getElementById('txtLawyerCNIC');
+            var cnic = cnicField.value.trim();
+
+            // CNIC Format Validation (if provided)
+            if (cnic.length > 0 && !/^\d{5}-\d{7}-\d{1}$/.test(cnic)) {
+                alert('Please enter a valid CNIC in xxxxx-xxxxxxx-x format.');
+                cnicField.focus();
+                return false;
+            }
+
+            // Get all search criteria
+            var caseType = document.getElementById('ddlCaseType').selectedIndex > 0;
+            var caseNo = document.getElementById('txtCaseNo').value.trim().length > 1;
+            var caseYear = document.getElementById('ddlYear').selectedIndex > 0;
+            var registry = document.getElementById('ddlRegistry').selectedIndex > 0;
+            var caseTitle = document.getElementById('txtCaseTitle').value.trim().length > 1;
+            var judgeName = document.getElementById('ddlJudge').selectedIndex > 0;
+            var hearingDate = document.getElementById('txtHearingDate').value.trim().length > 0;
+            var lawyerCNIC = cnic.length > 5;
+
+            // Count non-empty criteria
+            var count = 0;
+            if (caseType) count++;
+            if (caseNo) count++;
+            if (caseYear) count++;
+            if (registry) count++;
+            if (caseTitle) count++;
+            if (judgeName) count++;
+            if (hearingDate) count++;
+            if (lawyerCNIC) count++;
+
+            if (count < 2) {
+                alert("Please provide at least 2 search criteria.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function clearHearingDate() {
+            document.getElementById('txtHearingDate').value = '';
+        }
+    </script>
+
+    <style>
+        table {
+            display: inline-table !important;
+        }
+
+        @media (max-width: 576px) {
+            .sc-logo {
+                height: 80px !important; /* adjust as needed */
+            }
+        }
+
+        .nowrap-cell {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        label.large-checkbox {
+            display: block;
+            padding-left: 30px;
+            text-indent: -25px;
+            margin-top: 12px;
+        }
+
+        input[type="checkbox"].large {
+            width: 25px;
+            height: 25px;
+            margin: 0px 15px -1px 0px;
+            vertical-align: bottom;
+            top: -1px;
+        }
+    </style>
+    <form method="post" action="./OnlineCaseInformation.aspx" id="form2">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form2'];
+if (!theForm) {
+    theForm = document.form2;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=hNluvY1COnTG3QEaDTZ77gjGdyrwcmJaT3L8EKfSGUDI8uCimngbGmeo6Px2TyNxmUXv695hcoSp8-53NZFHrmOWyd01&amp;t=638275598802022093" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=ACd6R9p8JIqsFTcV8w9_wEbMWw3bUvYs65FMv8mu_0yFk8jPJ_v_yT-76CnvfFEQDWL1zj4n6BYS5E31LvdYWkc0PtjaOb1sCoHKjhZylcH4k9fDBlXhZdOSFC4KW5PEA6GmBIA7AmhUmYmc1fZdriczSBc1&amp;t=ffffffffcbc226b4" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=OJq0cI3s764yORU8dy-fwkj-O1Duvt6pINrvl-J9mOaugRXVyUFKyeGy6_Dr45F9B1Cwxlc4_59n-Rbaq3tbWVCTDI9PYOtqh5wSRkAlD7TfJKYML0D7ZeZVyfhYrp5-_q9YuTj1Ze_E5z0DJqxA0XknyMppTf7huK2HjEn2IcQU-2yT0&amp;t=ffffffffcbc226b4" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9C736C0C">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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">
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form2', [], [], [], 90, '');
+//]]>
+</script>
+
+
+        <div class="container mt-4">
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <img src="images/sc786.png" alt="Supreme Court Logo" style="height: 130px;">
+                <h2 class="mt-2">Supreme Court of Pakistan</h2>
+            </div>
+
+            <!-- Case Details Title -->
+            <div class="text-center mb-3">
+                <h4 id="h4Main">Case Information</h4>
+            </div>
+
+            <!-- Error -->
+            
+
+            <div class="container mt-4">
+                <!-- Header -->
+
+                <!-- New Fields -->
+                <div class="row g-3 mb-4">
+                    <!-- Case Type -->
+                    <div class="col-md-3 col-12">
+                        <label for="ddlCaseType" class="form-label">Case Type</label>
+                        <select name="ddlCaseType" id="ddlCaseType" class="form-select">
+	<option value=""></option>
+	<option value="1">C.A.</option>
+	<option value="21">C.M.A.</option>
+	<option value="20">C.M.Appeal.</option>
+	<option value="13">C.P.</option>
+	<option value="5">C.P.L.A.</option>
+	<option value="7">C.R.P.</option>
+	<option value="4">C.Sh.A.</option>
+	<option value="33">C.Sh.P.</option>
+	<option value="10">C.Sh.R.P.</option>
+	<option value="35">C.U.O.</option>
+	<option value="2">Crl.A.</option>
+	<option value="36">Crl.I.C.A.</option>
+	<option value="19">Crl.M.A.</option>
+	<option value="22">Crl.M.Appeal.</option>
+	<option value="16">Crl.O.P.</option>
+	<option value="6">Crl.P.L.A.</option>
+	<option value="8">Crl.R.P.</option>
+	<option value="24">Crl.S.M.R.P.</option>
+	<option value="31">Crl.S.M.Sh.R.P.</option>
+	<option value="3">Crl.Sh.A.</option>
+	<option value="9">Crl.Sh.P.</option>
+	<option value="14">Crl.Sh.R.P.</option>
+	<option value="29">D.S.A.</option>
+	<option value="15">H.R.C.</option>
+	<option value="32">H.R.M.A.</option>
+	<option value="28">I.C.A.</option>
+	<option value="12">J.P.</option>
+	<option value="11">J.Sh.P.</option>
+	<option value="27">Reference.</option>
+	<option value="34">Report</option>
+	<option value="25">S.M.C.</option>
+	<option value="18">S.M.R.P.</option>
+	<option value="37">T.A.(C)</option>
+	<option value="38">T.A.(F)</option>
+	<option value="39">T.Case</option>
+
+</select>
+                    </div>
+
+                    <!-- Case No. -->
+                    <div class="col-md-3 col-12">
+                        <label for="txtCaseNo" class="form-label">Case No.</label>
+                        <input name="txtCaseNo" type="text" id="txtCaseNo" class="form-control">
+                    </div>
+
+                    <!-- Case Year -->
+                    <div class="col-md-3 col-12">
+                        <label for="ddlYear" class="form-label">Case Year</label>
+                        <select name="ddlYear" id="ddlYear" class="form-select">
+	<option value=""></option>
+	<option value="2025">2025</option>
+	<option value="2024">2024</option>
+	<option value="2023">2023</option>
+	<option value="2022">2022</option>
+	<option value="2021">2021</option>
+	<option value="2020">2020</option>
+	<option value="2019">2019</option>
+	<option value="2018">2018</option>
+	<option value="2017">2017</option>
+	<option value="2016">2016</option>
+	<option value="2015">2015</option>
+	<option value="2014">2014</option>
+	<option value="2013">2013</option>
+	<option value="2012">2012</option>
+	<option value="2011">2011</option>
+	<option value="2010">2010</option>
+	<option value="2009">2009</option>
+	<option value="2008">2008</option>
+	<option value="2007">2007</option>
+	<option value="2006">2006</option>
+	<option value="2005">2005</option>
+	<option value="2004">2004</option>
+	<option value="2003">2003</option>
+	<option value="2002">2002</option>
+	<option value="2001">2001</option>
+	<option value="2000">2000</option>
+	<option value="1999">1999</option>
+	<option value="1998">1998</option>
+	<option value="1997">1997</option>
+	<option value="1996">1996</option>
+	<option value="1995">1995</option>
+	<option value="1994">1994</option>
+	<option value="1993">1993</option>
+	<option value="1992">1992</option>
+	<option value="1991">1991</option>
+	<option value="1990">1990</option>
+	<option value="1989">1989</option>
+	<option value="1988">1988</option>
+	<option value="1987">1987</option>
+	<option value="1986">1986</option>
+	<option value="1985">1985</option>
+	<option value="1984">1984</option>
+	<option value="1983">1983</option>
+	<option value="1982">1982</option>
+	<option value="1981">1981</option>
+	<option value="1980">1980</option>
+
+</select>
+                    </div>
+
+                    <!-- Registry -->
+                    <div class="col-md-3 col-12">
+                        <label for="ddlRegistry" class="form-label">Registry</label>
+                        <select name="ddlRegistry" id="ddlRegistry" class="form-select">
+	<option value="-">-</option>
+	<option value="I">Islamabad</option>
+	<option value="P">Peshawar</option>
+	<option value="L">Lahore</option>
+	<option value="K">Karachi</option>
+	<option value="Q">Quetta</option>
+
+</select>
+                    </div>
+
+                    <!-- Case Title -->
+                    <div class="col-md-3 col-12">
+                        <label for="txtCaseTitle" class="form-label">Case Title/Parties Name</label>
+                        <input name="txtCaseTitle" type="text" id="txtCaseTitle" class="form-control">
+                    </div>
+
+                    <!-- Hon'ble Judge -->
+                    <div class="col-md-3 col-12">
+                        <label for="ddlJudge" class="form-label">Hon'ble Judge</label>
+                        <select name="ddlJudge" id="ddlJudge" class="form-select">
+	<option value=""></option>
+	<option value="Mr. Justice Yahya Afridi">Mr. Justice Yahya Afridi</option>
+	<option value="Mr. Justice Syed Mansoor Ali Shah">Mr. Justice Syed Mansoor Ali Shah</option>
+	<option value="Mr. Justice Munib Akhtar">Mr. Justice Munib Akhtar</option>
+	<option value="Mr. Justice Amin-Ud-Din Khan">Mr. Justice Amin-Ud-Din Khan</option>
+	<option value="Mr. Justice Jamal Khan Mandokhail">Mr. Justice Jamal Khan Mandokhail</option>
+	<option value="Mr. Justice Muhammad Ali Mazhar">Mr. Justice Muhammad Ali Mazhar</option>
+	<option value="Mrs. Justice Ayesha A. Malik">Mrs. Justice Ayesha A. Malik</option>
+	<option value="Mr. Justice Athar Minallah">Mr. Justice Athar Minallah</option>
+	<option value="Mr. Justice Syed Hasan Azhar Rizvi">Mr. Justice Syed Hasan Azhar Rizvi</option>
+	<option value="Mr. Justice Shahid Waheed">Mr. Justice Shahid Waheed</option>
+	<option value="Ms. Justice Musarrat Hilali">Ms. Justice Musarrat Hilali</option>
+	<option value="Mr. Justice Irfan Saadat Khan">Mr. Justice Irfan Saadat Khan</option>
+	<option value="Mr. Justice Naeem Akhter Afghan">Mr. Justice Naeem Akhter Afghan</option>
+	<option value="Mr. Justice Malik Shahzad Ahmad Khan">Mr. Justice Malik Shahzad Ahmad Khan</option>
+	<option value="Mr. Justice Aqeel Ahmed Abbasi">Mr. Justice Aqeel Ahmed Abbasi</option>
+	<option value="Mr. Justice Shahid Bilal Hassan">Mr. Justice Shahid Bilal Hassan</option>
+	<option value="Mr. Justice Muhammad Hashim Khan Kakar">Mr. Justice Muhammad Hashim Khan Kakar</option>
+	<option value="Mr. Justice Muhammad Shafi Siddiqui">Mr. Justice Muhammad Shafi Siddiqui</option>
+	<option value="Mr. Justice Salahuddin Panhwar">Mr. Justice Salahuddin Panhwar</option>
+	<option value="Mr. Justice Shakeel Ahmad">Mr. Justice Shakeel Ahmad</option>
+	<option value="Mr. Justice Aamer Farooq">Mr. Justice Aamer Farooq</option>
+	<option value="Mr. Justice Ishtiaq Ibrahim">Mr. Justice Ishtiaq Ibrahim</option>
+	<option value="Mr. Justice Ali Baqar Najafi">Mr. Justice Ali Baqar Najafi</option>
+	<option value="Mr. Justice Miangul Hassan Aurangzeb">Mr. Justice Miangul Hassan Aurangzeb</option>
+	<option value="Mr. Justice Sardar Tariq Masood">Mr. Justice Sardar Tariq Masood</option>
+	<option value="Mr. Justice Mazhar Alam Khan Miankhel">Mr. Justice Mazhar Alam Khan Miankhel</option>
+	<option value="Mr. Justice Dr. Khalid Masood">Mr. Justice Dr. Khalid Masood</option>
+	<option value="Mr. Justice Dr. Qibla Ayaz">Mr. Justice Dr. Qibla Ayaz</option>
+
+</select>
+                    </div>
+
+                    <!-- Hearing Date -->
+                    <div class="col-md-3 col-12">
+                        <label for="txtHearingDate" class="form-label">Hearing/Cause List Date</label>
+                        <div class="input-group">
+                            <input name="txtHearingDate" type="date" id="txtHearingDate" class="form-control">
+                            <button type="button" class="btn btn-outline-secondary" title="Clear Date" onclick="clearHearingDate()">✕</button>
+                        </div>
+                    </div>
+
+                    <!-- Lawyer CNIC -->
+                    <div class="col-md-3 col-12">
+                        <label for="txtLawyerCNIC" class="form-label">Lawyer CNIC</label>
+                        <input name="txtLawyerCNIC" type="text" maxlength="15" id="txtLawyerCNIC" class="form-control" placeholder="xxxxx-xxxxxxx-x">
+                    </div>
+
+
+                    <div class="col-md-3 col-12">
+                        <label class="large-checkbox">
+                            <input name="chkPetitionCopy" type="checkbox" id="chkPetitionCopy" class="large">
+                            Petition/Appeal Digital Copy
+                        </label>
+                    </div>
+
+                    <!-- Judgment Available -->
+                    <div class="col-md-3 col-12">
+                        <label class="large-checkbox">
+                            <input name="chkJudgmentAvailable" type="checkbox" id="chkJudgmentAvailable" class="large">
+                            Judgment Available
+                        </label>
+                    </div>
+
+
+                    <!-- Search Button -->
+                    <div class="col-12 text-center mt-4">
+                        <input type="submit" name="btnSearch" value="Search" onclick="return validateSearchCount();" id="btnSearch" class="btn btn-primary px-4">
+                    </div>
+                    
+                </div>
+
+                <div id="div1">
+                    <div>
+
+</div>
+                </div>
+                <!-- Case Info -->
+                
+                <!-- Error Bottom -->
+                
+            </div>
+
+            <script>
+                $(document).ready(function () {
+                    $("#portalName").text("Case Details");
+                });
+            </script>
+    
+
+
+</div></form></body></html>
