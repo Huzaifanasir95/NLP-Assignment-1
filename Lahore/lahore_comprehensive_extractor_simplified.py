@@ -35,7 +35,7 @@ class ComprehensiveLahoreExtractor:
     Processes all case types and years with multi-browser parallel processing
     """
     
-    def __init__(self, max_workers=6):
+    def __init__(self, max_workers=12):
         self.max_workers = max_workers
         self.extracted_cases = []
         self.base_url = "https://scp.gov.pk"
@@ -709,8 +709,23 @@ def main():
     
     choice = input("\nSelect option (1-4): ").strip()
     
-    # Create base extractor
-    extractor = ComprehensiveLahoreExtractor(max_workers=6)
+    # Worker configuration
+    print(f"\nWorker Configuration:")
+    print(f"Current default: 12 workers")
+    print(f"Recommended: 6-16 workers (depending on your system)")
+    print(f"More workers = faster extraction but higher resource usage")
+    
+    worker_input = input(f"Enter number of workers (press Enter for 12): ").strip()
+    max_workers = 12  # default
+    if worker_input.isdigit():
+        max_workers = int(worker_input)
+        if max_workers > 20:
+            print(f"⚠️  Warning: {max_workers} workers is quite high. Consider 6-16 for stability.")
+        elif max_workers < 1:
+            max_workers = 1
+    
+    # Create base extractor with user-specified workers
+    extractor = ComprehensiveLahoreExtractor(max_workers=max_workers)
     
     if choice == "2":
         # Recent years only
