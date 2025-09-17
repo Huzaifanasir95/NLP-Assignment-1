@@ -34,9 +34,9 @@ class PaginatedMultiBrowserCALahore2025Extractor:
         self.base_url = "https://scp.gov.pk"
         self.results_lock = threading.Lock()
         
-        # Create links directory info (no actual downloads)
-        self.downloads_dir = "ca_lahore_2025_all_pages_pdf_links"
-        print(f"📋 PDF links will be captured (no downloads) in: {self.downloads_dir}")
+        # Create downloads directory (actual downloads now)
+        self.downloads_dir = "ca_lahore_2025_all_pages_pdfs"
+        print(f"� PDF files will be downloaded to: {self.downloads_dir}")
         
         print(f"✅ Paginated Multi-Browser C.A. Lahore 2025 Extractor initialized with {max_workers} workers")
     
@@ -190,7 +190,7 @@ class PaginatedMultiBrowserCALahore2025Extractor:
             return False
     
     def download_pdf(self, pdf_url, case_no, pdf_type, worker_id):
-        """Store PDF link information without downloading"""
+        """Download PDF files and return local path"""
         try:
             if not pdf_url or pdf_url == "N/A" or "not available" in pdf_url.lower():
                 return "No PDF Available"
@@ -199,11 +199,42 @@ class PaginatedMultiBrowserCALahore2025Extractor:
             if pdf_url.startswith('/'):
                 pdf_url = urljoin(self.base_url, pdf_url)
             
-            # Return the link without downloading
-            return f"PDF Link Available: {pdf_url}"
+            # Create downloads directory if it doesn't exist
+            os.makedirs(self.downloads_dir, exist_ok=True)
             
+            # Generate safe filename
+            safe_case_no = re.sub(r'[^\w\-_.]', '_', case_no)
+            filename = f"{safe_case_no}_{pdf_type}.pdf"
+            local_path = os.path.join(self.downloads_dir, filename)
+            
+            # Skip if file already exists
+            if os.path.exists(local_path):
+                print(f"📄 Worker {worker_id}: PDF already exists - {filename}")
+                return local_path
+            
+            # Download the PDF
+            print(f"⬇️ Worker {worker_id}: Downloading {filename}")
+            
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            }
+            
+            response = requests.get(pdf_url, headers=headers, verify=False, timeout=30)
+            response.raise_for_status()
+            
+            # Save the PDF
+            with open(local_path, 'wb') as f:
+                f.write(response.content)
+            
+            print(f"✅ Worker {worker_id}: Downloaded {filename} ({len(response.content)} bytes)")
+            return local_path
+            
+        except requests.exceptions.RequestException as e:
+            print(f"❌ Worker {worker_id}: Download failed for {case_no} - {e}")
+            return f"Download Failed: {str(e)}"
         except Exception as e:
-            return f"Link Processing Failed: {str(e)}"
+            print(f"❌ Worker {worker_id}: Error downloading {case_no} - {e}")
+            return f"Download Error: {str(e)}"
     
     def extract_detailed_case_info(self, driver, case_index, worker_id, page_number):
         """Extract detailed case information for a specific case"""
@@ -569,6 +600,133 @@ class PaginatedMultiBrowserCALahore2025Extractor:
             print(f"❌ Paginated extraction failed: {e}")
             return False
     
+    def download_missing_pdfs_from_json(self, json_file="ca_lahore_2025_all_pages_complete.json"):
+        """Download PDFs from a previously extracted JSON file"""
+        try:
+            print(f"\n📥 DOWNLOADING MISSING PDFs FROM {json_file}")
+            print("=" * 60)
+            
+            # Load the JSON file
+            with open(json_file, 'r', encoding='utf-8') as f:
+                cases = json.load(f)
+            
+            print(f"📋 Loaded {len(cases)} cases from {json_file}")
+            
+            # Create downloads directory
+            os.makedirs(self.downloads_dir, exist_ok=True)
+            
+            download_tasks = []
+            
+            # Collect all PDF URLs that need downloading
+            for case in cases:
+                case_no = case.get('Case_Number', case.get('Case_No', 'Unknown'))
+                
+                # Check memo PDFs
+                memo_path = case.get('Petition_Appeal_Memo', {}).get('Downloaded_Path', '')
+                if memo_path and 'PDF Link Available:' in memo_path:
+                    pdf_url = memo_path.replace('PDF Link Available: ', '').strip()
+                    download_tasks.append({
+                        'url': pdf_url,
+                        'case_no': case_no,
+                        'type': 'memo',
+                        'case_data': case
+                    })
+                
+                # Check judgment PDFs
+                judgment_path = case.get('Judgement_Order', {}).get('Downloaded_Path', '')
+                if judgment_path and 'PDF Link Available:' in judgment_path:
+                    pdf_url = judgment_path.replace('PDF Link Available: ', '').strip()
+                    download_tasks.append({
+                        'url': pdf_url,
+                        'case_no': case_no,
+                        'type': 'judgment',
+                        'case_data': case
+                    })
+                
+                # Check extra PDFs
+                for extra_pdf in case.get('Extra_PDFs', []):
+                    extra_path = extra_pdf.get('Downloaded_Path', '')
+                    if extra_path and 'PDF Link Available:' in extra_path:
+                        pdf_url = extra_path.replace('PDF Link Available: ', '').strip()
+                        download_tasks.append({
+                            'url': pdf_url,
+                            'case_no': case_no,
+                            'type': 'extra',
+                            'case_data': case
+                        })
+            
+            print(f"🔍 Found {len(download_tasks)} PDF URLs to download")
+            
+            if not download_tasks:
+                print("ℹ️ No PDF URLs found for download")
+                return
+            
+            # Download PDFs with threading
+            downloaded_count = 0
+            failed_count = 0
+            
+            def download_single_pdf(task):
+                nonlocal downloaded_count, failed_count
+                
+                try:
+                    pdf_url = task['url']
+                    case_no = task['case_no']
+                    pdf_type = task['type']
+                    
+                    # Generate filename
+                    safe_case_no = re.sub(r'[^\w\-_.]', '_', case_no)
+                    filename = f"{safe_case_no}_{pdf_type}.pdf"
+                    local_path = os.path.join(self.downloads_dir, filename)
+                    
+                    # Skip if already exists
+                    if os.path.exists(local_path):
+                        print(f"📄 Already exists: {filename}")
+                        return local_path
+                    
+                    # Download
+                    print(f"⬇️ Downloading: {filename}")
+                    headers = {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                    }
+                    
+                    response = requests.get(pdf_url, headers=headers, verify=False, timeout=30)
+                    response.raise_for_status()
+                    
+                    with open(local_path, 'wb') as f:
+                        f.write(response.content)
+                    
+                    downloaded_count += 1
+                    print(f"✅ Downloaded: {filename} ({len(response.content)//1024}KB)")
+                    return local_path
+                    
+                except Exception as e:
+                    failed_count += 1
+                    print(f"❌ Failed: {task['case_no']} - {e}")
+                    return None
+            
+            # Process downloads in parallel
+            with ThreadPoolExecutor(max_workers=4) as executor:
+                futures = [executor.submit(download_single_pdf, task) for task in download_tasks]
+                
+                for future in as_completed(futures):
+                    future.result()  # Wait for completion
+            
+            print(f"\n📊 DOWNLOAD SUMMARY:")
+            print(f"   Total PDFs Found: {len(download_tasks)}")
+            print(f"   Successfully Downloaded: {downloaded_count}")
+            print(f"   Failed Downloads: {failed_count}")
+            print(f"   Success Rate: {(downloaded_count/len(download_tasks)*100):.1f}%")
+            
+            # Show final directory stats
+            if os.path.exists(self.downloads_dir):
+                actual_files = [f for f in os.listdir(self.downloads_dir) if f.endswith('.pdf')]
+                total_size = sum(os.path.getsize(os.path.join(self.downloads_dir, f)) for f in actual_files)
+                print(f"   Total Files in Directory: {len(actual_files)}")
+                print(f"   Total Size: {total_size / (1024*1024):.2f} MB")
+            
+        except Exception as e:
+            print(f"❌ Error downloading PDFs from JSON: {e}")
+
     def save_results(self, filename="ca_lahore_2025_all_pages_complete.json"):
         """Save results to JSON file"""
         try:
@@ -595,13 +753,15 @@ class PaginatedMultiBrowserCALahore2025Extractor:
             if unique_cases:
                 print(f"\n📋 COMPLETE EXTRACTION SUMMARY:")
                 print(f"   Total Unique Cases: {len(unique_cases)}")
-                print(f"   PDF Links Captured: {self.downloads_dir}")
+                print(f"   PDF Downloads Directory: {self.downloads_dir}")
                 
-                # Count by pages
+                # Count by pages and PDFs
                 page_counts = {}
                 pdf_count = 0
                 memo_pdfs = 0
                 judgment_pdfs = 0
+                downloaded_pdfs = 0
+                failed_downloads = 0
                 
                 for case in unique_cases:
                     page_num = case.get('Page_Number', 'Unknown')
@@ -610,24 +770,64 @@ class PaginatedMultiBrowserCALahore2025Extractor:
                     memo_path = case.get('Petition_Appeal_Memo', {}).get('Downloaded_Path', '')
                     judgment_path = case.get('Judgement_Order', {}).get('Downloaded_Path', '')
                     
-                    if memo_path and memo_path != 'No PDF Available' and 'PDF Link Available' in memo_path:
+                    # Count memo PDFs
+                    if memo_path and memo_path != 'No PDF Available':
                         memo_pdfs += 1
-                    if judgment_path and judgment_path != 'No PDF Available' and 'PDF Link Available' in judgment_path:
-                        judgment_pdfs += 1
+                        if not memo_path.startswith('Download Failed') and not memo_path.startswith('Download Error'):
+                            downloaded_pdfs += 1
+                        else:
+                            failed_downloads += 1
                     
-                    if 'PDF Link Available' in memo_path or 'PDF Link Available' in judgment_path:
-                        pdf_count += 1
+                    # Count judgment PDFs  
+                    if judgment_path and judgment_path != 'No PDF Available':
+                        judgment_pdfs += 1
+                        if not judgment_path.startswith('Download Failed') and not judgment_path.startswith('Download Error'):
+                            downloaded_pdfs += 1
+                        else:
+                            failed_downloads += 1
+                    
+                    # Count additional PDFs from Files arrays
+                    for file_info in case.get('Petition_Appeal_Memo', {}).get('Files', []):
+                        file_path = file_info.get('Downloaded_Path', '')
+                        if file_path and file_path != 'No PDF Available':
+                            if not file_path.startswith('Download Failed') and not file_path.startswith('Download Error'):
+                                downloaded_pdfs += 1
+                            else:
+                                failed_downloads += 1
+                    
+                    for file_info in case.get('Judgement_Order', {}).get('Files', []):
+                        file_path = file_info.get('Downloaded_Path', '')
+                        if file_path and file_path != 'No PDF Available':
+                            if not file_path.startswith('Download Failed') and not file_path.startswith('Download Error'):
+                                downloaded_pdfs += 1
+                            else:
+                                failed_downloads += 1
                 
-                print(f"   Cases with PDF Links: {pdf_count}")
-                print(f"   Memo PDF Links: {memo_pdfs}")
-                print(f"   Judgment PDF Links: {judgment_pdfs}")
+                print(f"   Memo PDFs Found: {memo_pdfs}")
+                print(f"   Judgment PDFs Found: {judgment_pdfs}")
+                print(f"   Successfully Downloaded: {downloaded_pdfs}")
+                print(f"   Failed Downloads: {failed_downloads}")
+                print(f"   Download Success Rate: {(downloaded_pdfs/(downloaded_pdfs+failed_downloads)*100):.1f}%" if (downloaded_pdfs+failed_downloads) > 0 else "N/A")
+                
+                # Check actual files in directory
+                if os.path.exists(self.downloads_dir):
+                    actual_files = [f for f in os.listdir(self.downloads_dir) if f.endswith('.pdf')]
+                    print(f"   Actual PDF Files on Disk: {len(actual_files)}")
+                    
+                    # Calculate total size
+                    total_size = 0
+                    for file in actual_files:
+                        file_path = os.path.join(self.downloads_dir, file)
+                        total_size += os.path.getsize(file_path)
+                    
+                    print(f"   Total Downloaded Size: {total_size / (1024*1024):.2f} MB")
                 
                 print(f"\n📄 Cases by Page:")
                 for page_num in sorted(page_counts.keys()):
                     print(f"   Page {page_num}: {page_counts[page_num]} cases")
                 
-                # Show sample cases from different pages
-                print(f"\n📄 Sample Cases from Different Pages:")
+                # Show sample cases with download status
+                print(f"\n📄 Sample Cases with PDF Download Status:")
                 pages_shown = set()
                 sample_count = 0
                 for case in unique_cases:
@@ -639,8 +839,23 @@ class PaginatedMultiBrowserCALahore2025Extractor:
                         memo_path = case.get('Petition_Appeal_Memo', {}).get('Downloaded_Path', 'N/A')
                         judgment_path = case.get('Judgement_Order', {}).get('Downloaded_Path', 'N/A')
                         
-                        print(f"      Memo PDF Link: {'✅' if 'PDF Link Available' in memo_path else '❌'}")
-                        print(f"      Judgment PDF Link: {'✅' if 'PDF Link Available' in judgment_path else '❌'}")
+                        # Check if files were actually downloaded
+                        memo_status = "❌"
+                        if memo_path and memo_path != 'No PDF Available':
+                            if os.path.exists(memo_path):
+                                memo_status = f"✅ ({os.path.getsize(memo_path)//1024}KB)"
+                            elif not memo_path.startswith('Download'):
+                                memo_status = "🔗 Link Only"
+                        
+                        judgment_status = "❌"
+                        if judgment_path and judgment_path != 'No PDF Available':
+                            if os.path.exists(judgment_path):
+                                judgment_status = f"✅ ({os.path.getsize(judgment_path)//1024}KB)"
+                            elif not judgment_path.startswith('Download'):
+                                judgment_status = "🔗 Link Only"
+                        
+                        print(f"      Memo PDF: {memo_status}")
+                        print(f"      Judgment PDF: {judgment_status}")
                         
                         pages_shown.add(page_num)
                         sample_count += 1
@@ -654,12 +869,49 @@ class PaginatedMultiBrowserCALahore2025Extractor:
 
 def main():
     """Main function"""
+    print("🚀 C.A. LAHORE 2025 EXTRACTOR WITH PDF DOWNLOADS")
+    print("=" * 60)
+    
+    # Check if we have existing JSON file
+    json_file = "ca_lahore_2025_all_pages_complete.json"
+    has_existing_data = os.path.exists(json_file)
+    
+    if has_existing_data:
+        print(f"\n📄 Found existing extraction file: {json_file}")
+        print("Options:")
+        print("1. Run fresh extraction with PDF downloads")
+        print("2. Download PDFs from existing JSON file")
+        print("3. Exit")
+        
+        choice = input("\nSelect option (1-3): ").strip()
+        
+        if choice == "2":
+            # Download PDFs from existing JSON
+            extractor = PaginatedMultiBrowserCALahore2025Extractor(max_workers=4)
+            extractor.download_missing_pdfs_from_json(json_file)
+            print(f"\n🎉 PDF download from existing data completed!")
+            return
+        elif choice == "3":
+            print("Exiting...")
+            return
+        elif choice != "1":
+            print("Invalid choice. Running fresh extraction...")
+    
+    # Run fresh extraction
+    print(f"\n🔄 Starting fresh extraction with PDF downloads...")
+    
     # Create extractor with 4 workers for optimal performance across pages
     extractor = PaginatedMultiBrowserCALahore2025Extractor(max_workers=4)
     
     if extractor.run_parallel_extraction():
         extractor.save_results()
-        print("\n🎉 Paginated multi-browser extraction completed successfully!")
+        print("\n🎉 Paginated multi-browser extraction with PDF downloads completed successfully!")
+        
+        # Offer to download any missed PDFs
+        print(f"\n📥 Would you like to attempt downloading any missed PDFs?")
+        retry_choice = input("Retry failed downloads? (y/n): ").strip().lower()
+        if retry_choice == 'y':
+            extractor.download_missing_pdfs_from_json()
     else:
         print("\n❌ Paginated multi-browser extraction failed")
 
