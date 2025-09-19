@@ -36,8 +36,8 @@ class CrlALahoreInteractiveExtractor:
         self.active_json_files = {}  # Track open JSON files for incremental writing
         
         # Configuration for Crl.A. cases
-        self.case_type_value = "5"
-        self.case_type_text = "C.P.L.A."
+        self.case_type_value = "11"
+        self.case_type_text = "J_Sh.P."
     
         # Available year ranges (5-year gaps)
         self.year_ranges = {
