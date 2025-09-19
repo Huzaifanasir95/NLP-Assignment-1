@@ -1,6 +1,14 @@
 2025/
 data/
-Lahore/
+
+Lahore/2_Crl_A/ 
+Lahore/3_Crl_Sh_A/
+Lahore/4_C_Sh_A/
+Lahore/5_C_P_L_A/
+Lahore/6_Crl_P_L_A/
+Lahore/7_Crl_P_A/
+Lahore/8_Crl_A_A/
+
 Karachi/
 .vscode/
 analyze_structure.py
