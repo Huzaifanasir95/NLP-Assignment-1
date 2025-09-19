@@ -1,5 +1,5 @@
 2025/
-data/
+
 Lahore/1_C_A/
 Lahore/2_Crl_A/ 
 Lahore/3_Crl_Sh_A/
@@ -10,17 +10,3 @@ Lahore/6_Crl_P_L_A/
 
 .vscode/
 analyze_structure.py
-SupremeCourt_CaseInfo/
-SupremeCourt_Data/
-SupremeCourt_Judgements/
-
-project_summary.py
-test_updated_extractors.py
-Assignment-1.ipynb
-comprehensive_extractor_1980_2025.py
-final_summary.py
-
-QUICKSTART.md
-README_UPDATED_SYSTEM.md
-
-requirements.txt
