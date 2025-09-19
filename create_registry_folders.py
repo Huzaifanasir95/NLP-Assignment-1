@@ -38,7 +38,7 @@ class RegistryStructureCreator:
         registry_dir.mkdir(exist_ok=True)
         
         case_types = self.analysis_data['case_types']
-        years = self.analysis_data['years']
+        year_ranges = self.analysis_data['year_ranges']
         
         created_folders = 0
         
@@ -53,25 +53,25 @@ class RegistryStructureCreator:
             
             print(f"📁 Case Type: {case_folder_name}")
             
-            # Create individual year folders within case type folder
-            for year in years:
-                year_value = year['value']
-                year_dir = case_type_dir / year_value
-                year_dir.mkdir(exist_ok=True)
+            # Create year range folders within case type folder
+            for year_range in year_ranges:
+                range_name = year_range['name']
+                year_range_dir = case_type_dir / range_name
+                year_range_dir.mkdir(exist_ok=True)
                 
-                # Create Logs and PDF folders within each year
-                logs_dir = year_dir / "logs"
-                pdf_dir = year_dir / "pdfs"
+                # Create logs and pdfs folders directly in year range folder
+                logs_dir = year_range_dir / "logs"
+                pdfs_dir = year_range_dir / "pdfs"
                 logs_dir.mkdir(exist_ok=True)
-                pdf_dir.mkdir(exist_ok=True)
+                pdfs_dir.mkdir(exist_ok=True)
                 
                 created_folders += 1
                 
         print(f"\n✅ {registry_name.upper()} FOLDER STRUCTURE CREATED!")
         print(f"   Case Type Folders: {len(case_types)}")
-        print(f"   Year Folders: {len(case_types) * len(years)}")
-        print(f"   Logs + PDF Folders: {len(case_types) * len(years) * 2}")
-        print(f"   Total Folders Created: {created_folders * 2}")  # *2 for Logs + PDF
+        print(f"   Year Range Folders: {len(case_types) * len(year_ranges)}")
+        print(f"   Logs + PDF Folders: {len(case_types) * len(year_ranges) * 2}")
+        print(f"   Total Folders Created: {created_folders * 2}")  # *2 for logs + pdfs
         
         return True
     
@@ -93,8 +93,8 @@ class RegistryStructureCreator:
         print("🎉 ALL REGISTRY STRUCTURES COMPLETE!")
         print("=" * 60)
         print(f"✅ Successfully created: {success_count}/{len(self.registries)} registries")
-        print(f"📁 Structure: Case_Type > Year > (Logs + PDF)")
-        print(f"📋 {len(self.analysis_data['case_types'])} case types × {len(self.analysis_data['years'])} years per registry")
+        print(f"📁 Structure: Case_Type > Year_Range > (logs + pdfs)")
+        print(f"📋 {len(self.analysis_data['case_types'])} case types × {len(self.analysis_data['year_ranges'])} year ranges per registry")
         print("🚀 Ready for case extraction development!")
 
 
