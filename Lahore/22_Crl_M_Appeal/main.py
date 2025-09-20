@@ -37,8 +37,8 @@ class CrlALahoreInteractiveExtractor:
         
         # Configuration for Crl.A. cases
         self.case_type_value = "22"
-        self.case_type_text = "Crl.M.A."
-        
+        self.case_type_text = "C.P.L.A."
+    
         # Available year ranges (5-year gaps)
         self.year_ranges = {
             "1": {"name": "1980-1984", "years": [1980, 1981, 1982, 1983, 1984]},
@@ -326,56 +326,92 @@ class CrlALahoreInteractiveExtractor:
             return False
 
     def navigate_and_search(self, driver, worker_id, year):
-        """Navigate and search for specific year (proven technique)"""
+        """Navigate and search for specific year (proven technique) with enhanced timeout handling"""
         try:
             url = "https://scp.gov.pk/OnlineCaseInformation.aspx"
             print(f"🌐 Worker {worker_id}: Navigating for year {year}")
-            driver.get(url)
-            time.sleep(3)
             
-            # Wait for page to load
-            WebDriverWait(driver, 10).until(
+            # Use longer timeout for initial page load
+            driver.set_page_load_timeout(30)
+            driver.get(url)
+            time.sleep(5)  # Increased wait time
+            
+            # Wait for page to load with longer timeout
+            WebDriverWait(driver, 15).until(
                 EC.presence_of_element_located((By.ID, "ddlCaseType"))
             )
+            print(f"✅ Worker {worker_id}: Page loaded successfully for year {year}")
             
-            # Select case type: Crl.A.
-            case_type_select = WebDriverWait(driver, 10).until(
+            # Select case type: C.P.L.A.
+            case_type_select = WebDriverWait(driver, 15).until(
                 EC.element_to_be_clickable((By.ID, 'ddlCaseType'))
             )
             select = Select(case_type_select)
             select.select_by_value(self.case_type_value)
-            time.sleep(1)
+            time.sleep(2)  # Increased wait time
+            print(f"✅ Worker {worker_id}: Case type selected for year {year}")
             
             # Select registry: Lahore
-            registry_select = WebDriverWait(driver, 10).until(
+            registry_select = WebDriverWait(driver, 15).until(
                 EC.element_to_be_clickable((By.ID, 'ddlRegistry'))
             )
             select = Select(registry_select)
             select.select_by_value('L')
-            time.sleep(1)
+            time.sleep(2)  # Increased wait time
+            print(f"✅ Worker {worker_id}: Registry selected for year {year}")
             
             # Select year
-            year_select = WebDriverWait(driver, 10).until(
+            year_select = WebDriverWait(driver, 15).until(
                 EC.element_to_be_clickable((By.ID, 'ddlYear'))
             )
             select = Select(year_select)
             select.select_by_value(str(year))
-            time.sleep(1)
+            time.sleep(2)  # Increased wait time
+            print(f"✅ Worker {worker_id}: Year {year} selected")
             
-            # Click search button
-            search_button = WebDriverWait(driver, 10).until(
+            # Click search button with enhanced error handling
+            search_button = WebDriverWait(driver, 15).until(
                 EC.element_to_be_clickable((By.ID, 'btnSearch'))
             )
             driver.execute_script("arguments[0].scrollIntoView(true);", search_button)
-            time.sleep(1)
-            driver.execute_script("arguments[0].click();", search_button)
-            print(f"🔍 Worker {worker_id}: Search completed for year {year}")
-            time.sleep(5)
+            time.sleep(2)
             
-            return True
+            # Use JavaScript click and wait for results
+            driver.execute_script("arguments[0].click();", search_button)
+            print(f"🔍 Worker {worker_id}: Search button clicked for year {year}")
+            
+            # Wait for search results with longer timeout
+            print(f"⏳ Worker {worker_id}: Waiting for search results for year {year}...")
+            time.sleep(8)  # Increased wait time for search to complete
+            
+            # Check if search completed successfully by looking for results or "No Record Found"
+            try:
+                # Wait for either results table or no records message
+                WebDriverWait(driver, 20).until(
+                    lambda d: (
+                        d.find_elements(By.XPATH, "//table") or 
+                        d.find_elements(By.XPATH, "//span[contains(text(), 'No Record Found')]")
+                    )
+                )
+                print(f"✅ Worker {worker_id}: Search completed for year {year}")
+                
+                # Reset page load timeout back to normal
+                driver.set_page_load_timeout(20)
+                return True
+                
+            except Exception as wait_error:
+                print(f"⚠️ Worker {worker_id}: Search results timeout for year {year} - {wait_error}")
+                # Reset page load timeout back to normal
+                driver.set_page_load_timeout(20)
+                return False
             
         except Exception as e:
             print(f"❌ Worker {worker_id}: Search failed for year {year} - {e}")
+            # Reset page load timeout back to normal in case of error
+            try:
+                driver.set_page_load_timeout(20)
+            except:
+                pass
             return False
     
     def navigate_to_page(self, driver, page_number, worker_id, max_retries=3):
@@ -1068,12 +1104,18 @@ class CrlALahoreInteractiveExtractor:
                 # Continue - records found
                 pass
 
-            # Get initial pagination info
+            # Get initial pagination info with enhanced handling for few pages
             try:
+                time.sleep(3)  # Wait for pagination to load
                 page_links = driver.find_elements(By.XPATH, "//a[contains(@href, 'Page$')]")
                 initial_visible_pages = len(page_links) + 1 if page_links else 1
                 print(f"📋 Worker {worker_id}: Initial visible pages: {initial_visible_pages}")
-            except:
+                
+                # Check if this is a single page result (no pagination)
+                if initial_visible_pages == 1 and not page_links:
+                    print(f"📄 Worker {worker_id}: Single page detected for year {year}")
+            except Exception as e:
+                print(f"⚠️ Worker {worker_id}: Error reading pagination info: {e}")
                 initial_visible_pages = 1
 
             # Process pages using chunk-based navigation
