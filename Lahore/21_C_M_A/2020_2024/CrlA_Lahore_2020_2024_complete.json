@@ -4458,4 +4458,322 @@
   "Year": 2020,
   "Case_Type": "C.P.L.A.",
   "Year_Range": "2020-2024"
+},
+{
+  "Case_No": "C.M.A.3019-L/2022",
+  "Case_Title": "Muhammad Farooq Shah v. Punjab Labour Appellate Tribunal, Lahore, etc",
+  "Status": "N/A",
+  "Institution_Date": "27/12/2022",
+  "Disposal_Date": "03/01/2023",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Junaid Jabbar Khan (ASC)Muhammad Yaseen Farrukh (AOR)Imtiaz Aslam Shaukat (died) (AOR)Mian Muhammad Javaid (ASC)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "Worker_ID": "Y2022_W1",
+  "Page_Number": 4,
+  "Year": 2022,
+  "Case_Type": "C.P.L.A.",
+  "Year_Range": "2020-2024"
+},
+{
+  "Case_No": "C.M.A.2134-L/2022",
+  "Case_Title": "Muhammad Mumtaz v. Chief Executive Officer, District Education Authority, Sargodha, etc",
+  "Status": "N/A",
+  "Institution_Date": "21/12/2022",
+  "Disposal_Date": "22/12/2022",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Muhammad Ozair Chughtai (AOR)Zafar Iqbal Chohan (ASC)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "Worker_ID": "Y2022_W1",
+  "Page_Number": 4,
+  "Year": 2022,
+  "Case_Type": "C.P.L.A.",
+  "Year_Range": "2020-2024"
+},
+{
+  "Case_No": "C.M.A.1717-L/2023",
+  "Case_Title": "Ghulam Mustafa v. Mst. Irshad Bibi, etc",
+  "Status": "N/A",
+  "Institution_Date": "01/02/2024",
+  "Disposal_Date": "14/02/2024",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Chaudhry Akhtar Ali (decd.) (AOR)Syed Qalb-i-Hassan (ASC)R - Notice (-)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "https://scp.gov.pk/Judgment_Upload/detail_judgment_14-02-2024.pdf",
+    "Type": "PDF",
+    "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/detail_judgment_14-02-2024.pdf",
+    "Files": [
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/detail_judgment_14-02-2024.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/detail_judgment_14-02-2024.pdf"
+      }
+    ]
+  },
+  "Worker_ID": "Y2023_W1",
+  "Page_Number": 4,
+  "Year": 2023,
+  "Case_Type": "C.P.L.A.",
+  "Year_Range": "2020-2024"
+},
+{
+  "Case_No": "C.M.A.2083-L/2020",
+  "Case_Title": "Sheikh Riaz-ud-Din v. Shafique Ahmad Khan, etc",
+  "Status": "N/A",
+  "Institution_Date": "23/11/2020",
+  "Disposal_Date": "25/11/2020",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "N/A",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "Worker_ID": "Y2020_W1",
+  "Page_Number": 4,
+  "Year": 2020,
+  "Case_Type": "C.P.L.A.",
+  "Year_Range": "2020-2024"
+},
+{
+  "Case_No": "C.M.A.2196-L/2024",
+  "Case_Title": "Government of the Punjab through Dera Ghazi Khan Construction Division, Dera Gahzi Khan v. Punjab Labour Appellate Tribunal No.II, Multan & others",
+  "Status": "N/A",
+  "Institution_Date": "24/10/2024",
+  "Disposal_Date": "",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Faiz-ur-Rehman (AOR)Rana Shamshad Khan (ASC)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "https://scp.gov.pk/Judgment_Upload/judgment_06-02-2025.pdf",
+    "Type": "PDF",
+    "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_06-02-2025.pdf",
+    "Files": [
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_06-02-2025.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_06-02-2025.pdf"
+      },
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_16-01-2025.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_16-01-2025.pdf"
+      },
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_28-11-2024.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_28-11-2024.pdf"
+      },
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_13-11-2024.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_13-11-2024.pdf"
+      }
+    ]
+  },
+  "Worker_ID": "Y2024_W1",
+  "Page_Number": 4,
+  "Year": 2024,
+  "Case_Type": "C.P.L.A.",
+  "Year_Range": "2020-2024"
+},
+{
+  "Case_No": "C.M.A.2231-L/2021",
+  "Case_Title": "Muhammad Asif Seth v. Abdul Ghafoor (deceased) through his L.Rs., etc",
+  "Status": "N/A",
+  "Institution_Date": "05/01/2022",
+  "Disposal_Date": "11/07/2025",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Mian Liaquat Ali (AOR)Mian Ghulam Hussain (AOR)Mian Shahid Iqbal (ASC)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "https://scp.gov.pk/Judgment_Upload/judgment_11-07-2025_1753702191.pdf",
+    "Type": "PDF",
+    "Downloaded_Path": "2020-2024\\pdfs\\C.M.A.2231-L_2021_judgment_1.pdf",
+    "Files": [
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_11-07-2025_1753702191.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "2020-2024\\pdfs\\C.M.A.2231-L_2021_judgment_1.pdf"
+      }
+    ]
+  },
+  "Worker_ID": "Y2021_W1",
+  "Page_Number": 4,
+  "Year": 2021,
+  "Case_Type": "C.P.L.A.",
+  "Year_Range": "2020-2024"
+},
+{
+  "Case_No": "C.M.A.2782-L/2022",
+  "Case_Title": "Muhammad Tufail v. Muhammad Anwar, etc",
+  "Status": "N/A",
+  "Institution_Date": "21/12/2022",
+  "Disposal_Date": "22/12/2022",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Mian Ghulam Hussain (AOR)Sh. Irfan Akram (ASC)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "Worker_ID": "Y2022_W1",
+  "Page_Number": 5,
+  "Year": 2022,
+  "Case_Type": "C.P.L.A.",
+  "Year_Range": "2020-2024"
+},
+{
+  "Case_No": "C.M.A.433-L/2023",
+  "Case_Title": "Muhammad Irshad v. Muhammad Iqbal",
+  "Status": "N/A",
+  "Institution_Date": "23/01/2024",
+  "Disposal_Date": "12/03/2024",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Mian Shah Abbas (ASC)Syed Fayyaz Ahmed Sherazi (AOR)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "https://scp.gov.pk/Judgment_Upload/detail_judgment_12-03-2024.pdf",
+    "Type": "PDF",
+    "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/detail_judgment_12-03-2024.pdf",
+    "Files": [
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/detail_judgment_12-03-2024.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/detail_judgment_12-03-2024.pdf"
+      }
+    ]
+  },
+  "Worker_ID": "Y2023_W1",
+  "Page_Number": 5,
+  "Year": 2023,
+  "Case_Type": "C.P.L.A.",
+  "Year_Range": "2020-2024"
 }
