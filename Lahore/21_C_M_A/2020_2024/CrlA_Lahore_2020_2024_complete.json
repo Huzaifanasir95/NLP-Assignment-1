@@ -5139,4 +5139,63 @@
   "Year": 2022,
   "Case_Type": "C.P.L.A.",
   "Year_Range": "2020-2024"
+},
+{
+  "Case_No": "C.M.A.2198-L/2024",
+  "Case_Title": "Government of the Punjab through Executive Engineer, Taunsa Barrage Division, Kot Addu & another v. Punjab Labour Appellate Tribunal No.II, Multan & others",
+  "Status": "N/A",
+  "Institution_Date": "24/10/2024",
+  "Disposal_Date": "",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Faiz-ur-Rehman (AOR)Rana Shamshad Khan (ASC)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "https://scp.gov.pk/Judgment_Upload/judgment_06-02-2025.pdf",
+    "Type": "PDF",
+    "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_06-02-2025.pdf",
+    "Files": [
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_06-02-2025.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_06-02-2025.pdf"
+      },
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_16-01-2025.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_16-01-2025.pdf"
+      },
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_28-11-2024.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_28-11-2024.pdf"
+      },
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_13-11-2024.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_13-11-2024.pdf"
+      }
+    ]
+  },
+  "Worker_ID": "Y2024_W1",
+  "Page_Number": 5,
+  "Year": 2024,
+  "Case_Type": "C.P.L.A.",
+  "Year_Range": "2020-2024"
 }
