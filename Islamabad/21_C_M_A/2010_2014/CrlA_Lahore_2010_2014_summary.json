@@ -1,0 +1,8 @@
+{
+  "case_type": "C.A.",
+  "year_range": "2010-2014",
+  "total_cases": 30,
+  "extraction_date": "2025-09-21 12:42:13",
+  "pdf_directory": "2010_2014\\pdfs",
+  "mode": "append_mode_with_duplicate_prevention"
+}
