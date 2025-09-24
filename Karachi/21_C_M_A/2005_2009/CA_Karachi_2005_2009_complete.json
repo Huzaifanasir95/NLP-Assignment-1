@@ -1,0 +1,83 @@
+[
+{
+  "Case_No": "C.M.A.153-K/2009",
+  "Case_Title": "Mr. Wazeer Ali v. The Chairman Evacuee Trust Property Board and others",
+  "Status": "N/A",
+  "Institution_Date": "06/03/2009",
+  "Disposal_Date": "",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "N/A",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "https://scp.gov.pk/Judgment_Upload/judgment_16-02-2024.pdf",
+    "Type": "PDF",
+    "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_16-02-2024.pdf",
+    "Files": [
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_16-02-2024.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_16-02-2024.pdf"
+      },
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_28-11-2023.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "Download Failed: 404 Client Error: Not Found for url: https://scp.gov.pk/Judgment_Upload/judgment_28-11-2023.pdf"
+      }
+    ]
+  },
+  "Worker_ID": "Y2009_W1",
+  "Page_Number": 2,
+  "Year": 2009,
+  "Case_Type": "C.A.",
+  "Year_Range": "2005-2009"
+},
+{
+  "Case_No": "C.M.A.507-K/2009",
+  "Case_Title": "Abdul Aziz Brohi v. Mst. Zaizan & others",
+  "Status": "N/A",
+  "Institution_Date": "17/02/2005",
+  "Disposal_Date": "22/12/2009",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Ghulam Qadir Jatoi (AOR)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "Worker_ID": "Y2009_W1",
+  "Page_Number": 3,
+  "Year": 2009,
+  "Case_Type": "C.A.",
+  "Year_Range": "2005-2009"
+}
+]
