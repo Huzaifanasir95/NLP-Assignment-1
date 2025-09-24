@@ -1,0 +1,49 @@
+[
+{
+  "Case_No": "Report7-K/2021",
+  "Case_Title": "Report filed on behalf of Chief Minister, Sindh through AOR, in compliance of Court order dated 09-05-2019 v. Federation of Pakistan & others",
+  "Status": "N/A",
+  "Institution_Date": "02/02/2021",
+  "Disposal_Date": "",
+  "Advocates": {
+    "ASC": "N/A",
+    "AOR": "Advocate General Sindh (-)Muhammad Iqbal Chaudhry (AOR)",
+    "Prosecutor": "N/A"
+  },
+  "Petition_Appeal_Memo": {
+    "File": "N/A",
+    "Type": "N/A",
+    "Downloaded_Path": "No PDF Available",
+    "Files": []
+  },
+  "History": [
+    {
+      "note": "No Fixation History Found"
+    }
+  ],
+  "Judgement_Order": {
+    "File": "https://scp.gov.pk/Judgment_Upload/judgment_25-04-2024_1757574700.pdf",
+    "Type": "PDF",
+    "Downloaded_Path": "2020-2024\\pdfs\\Report7-K_2021_judgment_1.pdf",
+    "Files": [
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_25-04-2024_1757574700.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "2020-2024\\pdfs\\Report7-K_2021_judgment_1.pdf"
+      },
+      {
+        "File": "https://scp.gov.pk/Judgment_Upload/judgment_26-11-2021_1757575236.pdf",
+        "Type": "PDF",
+        "Description": "Judgments/Orders",
+        "Downloaded_Path": "2020-2024\\pdfs\\Report7-K_2021_judgment_2.pdf"
+      }
+    ]
+  },
+  "Worker_ID": "Y2021_W1",
+  "Page_Number": 2,
+  "Year": 2021,
+  "Case_Type": "C.A.",
+  "Year_Range": "2020-2024"
+}
+]
